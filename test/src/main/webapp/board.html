@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board.html</title>
+    <style>
+        #search {
+            width: 100px;
+            color: white;
+        }
+
+        table {
+            border: 2px solid blue;
+        }
+
+        #mainSearch>input {
+            width: 150px;
+            height: 40px;
+            margin: 5px 340px;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+
+        }
+        tr>td:nth-child(1){
+            background-color: yellow;
+            text-align: center;
+        }
+        tr>td:nth-child(3){
+            background-color: chartreuse;
+            text-align: right;
+        }
+        tr>td>button:nth-of-type(1){
+            background-color: aqua;
+        }
+        tr:nth-child(2n){
+            color: red;
+        }
+        td.attachment{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article>
+            <div id='search'>게시글 검색</div>
+            <table border='1'>
+                <thead>       
+                    <tr>
+                        <td>게시판등록일</td>
+                        <td colspan="3"><input type='date' name='from' min='2020-03-01' max='2020-12-31'>
+                            <input type='time'>
+                            <input type='date' name='from' min='2021-03-01' max='2021-12-31'>
+                            <input type='time'>
+                            <button type='button' onclick="alert('오늘 사용')">오늘</button>
+                            <button type='button' onclick="alert('어제 사용')">어제</button>
+                            <button type='button' onclick="alert('3일 사용')">3일</button>
+                            <button type='button' onclick="alert('7일 사용')">7일</button>
+                            <button type='button' onclick="alert('한달 사용')">한달</button>
+                            <button type='button' onclick="alert('초기화 사용')">초기화</button>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>게시판 선택</td>
+                        <td colspan="3">
+                            <form>
+                                <select name="subjects">
+                                    <option value='1' selected>상품후기게시판</option>
+                                    <option value='2' selected>상품후기</option>
+                                    <option value='3' selected>상품</option>
+                                </select>
+                                <select name="menu">
+                                    <option value='1' selected>전체</option>
+                                    <option value='2' selected>1</option>
+                                    <option value='3' selected>2</option>
+                                </select>
+                                <select name="submenu">
+                                    <option value='1' selected>스팸글 포함(전체)</option>
+                                    <option value='2' selected>1</option>
+                                    <option value='3' selected>2</option>
+                                </select>
+
+                                <input type='radio' name='choice' value="전체" checked>전체
+                                <input type='radio' name='choice' value="진열" checked>진열
+                                <input type='radio' name='choice' value="미진열" checked>미진열
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>답변/ 댓글 여부</td>
+                        <td>
+                            <select name="menu">
+                                <option value='1' selected>전체</option>
+                                <option value='2' selected>1</option>
+                                <option value='3' selected>2</option>
+                            </select> </td>                      
+                        <td>첨부파일여부</td>
+                        <td id = 'attachment'>
+                        <input type='radio' name='choice' value="전체" checked>전체
+                            <input type='radio' name='choice' value="있음" checked>있음
+                            <input type='radio' name='choice' value="없음" checked>없음
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>게시글 검색</td>
+                        <td>
+                            <select name="menu">
+                                <option value='1' selected>이름</option>
+                                <option value='2' selected>1</option>
+                                <option value='3' selected>2</option>
+                            </select>
+                            <input type='board' name='board'>
+                        </td>
+                        <td>노출조건 선택</td>
+                        <td>
+                            <select name="menu">
+                                <option value='1' selected>전체 게시글</option>
+                                <option value='2' selected>1</option>
+                                <option value='3' selected>2</option>
+                            </select>
+                            <input type='checkbox' name='subject' value="답변글노출" checked>답변글노출<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>상품명검색</td>
+                        <td colspan="2">
+                            <select name="menu">
+                                <option value='1' selected>상품명</option>
+                                <option value='2' selected>1</option>
+                                <option value='3' selected>2</option>
+                            </select>
+                            <input type='board' name='board'>
+                            <button type='button' onclick="alert('상품검색 사용')">상품검색</button>
+                            <button type='button' onclick="alert('비우기 사용')">비우기</button>
+                            (상품명 게시글 검색은 상품 QnA, 상품리뷰 게시판 선택시 사용가능)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>별점 조건</td>
+                        <td colspan="3">
+                            <input type='radio' name='choice' value="전체리뷰" checked>전체리뷰
+                            <button type='button' onclick="alert('배송 사용')">배송</button>
+                            <input type='radio' name='choice' value="★★★★★" checked>★★★★★
+                            <input type='radio' name='choice' value="★★★★" checked>★★★★
+                            <input type='radio' name='choice' value="★★★" checked>★★★
+                            <input type='radio' name='choice' value="★★" checked>★★
+                            <input type='radio' name='choice' value="★" checked>★
+                            (리뷰 게시판에선 검색 가능합니다.)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>회원 구분</td>
+                        <td class ='attachment'></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="mainSearch">
+                <input type="submit" value="검 색 ▶">
+                
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>
